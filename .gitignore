@@ -1,4 +1,8 @@
-# wren-ai-service
+# ─────────────────────────────────────────────────────────────────────────────
+# WrenAI Monorepo — .gitignore
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── wren-ai-service ───────────────────────────────────────────────────────────
 wren-ai-service/.env.*
 wren-ai-service/config.yaml*
 !wren-ai-service/.env.*.example
@@ -26,77 +30,125 @@ wren-ai-service/demo/poetry.lock
 wren-ai-service/demo/custom_dataset
 wren-ai-service/demo/.env
 wren-ai-service/tools/dev/etc/**
-.deepeval-cache.json
-.deepeval_telemtry.txt
+wren-ai-service/manifests.yaml
+wren-ai-service/Dockerfile
+wren-ai-service/ai-service.log
+!wren-ai-service/tools/.env.example
+
+# ── wren-engine ───────────────────────────────────────────────────────────────
+wren-engine/wren-core-base/target
+wren-engine/wren-core/target
+wren-engine/wren-core-legacy/target
+wren-engine/wren-core-py/target
+
+# ── wren-ui ───────────────────────────────────────────────────────────────────
+wren-ui/node_modules/
+wren-ui/.next/
+wren-ui/out/
+wren-ui/.cache/
+wren-ui/dist/
+wren-ui/build/
+wren-ui/.yarn/install-state.gz
+wren-ui/coverage/
+wren-ui/test-results/
+wren-ui/playwright-report/
+wren-ui/e2e/e2e.config.json
+wren-ui/package-lock.json
+wren-ui/.env
+wren-ui/.env.local
+wren-ui/.env*.local
+wren-ui/{your_sqlite_file_path}
+wren-ui/docker-compose-wren-ui.yaml
+wren-ui/hash.js
+wren-ui/create_migration.py
+wren-ui/ui.log
+
+# ── wren-launcher ─────────────────────────────────────────────────────────────
+wren-launcher/dist
+wren-launcher/main
+wren-launcher-*
+
+# ── Docker ────────────────────────────────────────────────────────────────────
 docker/config.yaml
 docker/docker-compose-local.yaml
 docker/data
 
-# python
-.python-version
-
-# cache
-__pycache__
-local_cache
-.ruff_cache
-.pytest_cache
-
-# ide
-.idea
-.vscode/
-
-# os
-.DS_Store
-__MACOSX/
-*.pem
-
-# sqlite
-*.sqlite
-*.sqlite3
-
-# ui
-## dependencies
-node_modules
+# ── Node ──────────────────────────────────────────────────────────────────────
+node_modules/
 .pnp
 .pnp.js
-
-## testing
-wren-ui/coverage
-wren-ui/test-results
-wren-ui/playwright-report
-wren-ui/e2e/e2e.config.json
-
-## next.js
-wren-ui/.next
-wren-ui/out
-
-wren-ui/.yarn/install-state.gz
-
-## production
-wren-ui/build
-
-## debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
-## local env files
-.env*.local
+# ── Environment & Secrets ─────────────────────────────────────────────────────
+.env
 .env*
+.env.local
+.env*.local
 .env.ai
 
-## vercel
-.vercel
+# ── Python ────────────────────────────────────────────────────────────────────
+.python-version
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+local_cache/
+.ruff_cache/
+.pytest_cache/
+.deepeval-cache.json
+.deepeval_telemtry.txt
 
-## typescript
+# ── TypeScript / Next.js ──────────────────────────────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
+.vercel
 
-# wren-launcher
-wren-launcher/dist
-wren-launcher/main
+# ── Build & Data ──────────────────────────────────────────────────────────────
+build/
+dist/
+data/
+.tmp/
 
-## temporary files
-.tmp
+# ── Database ──────────────────────────────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
 
-!wren-ai-service/tools/.env.example
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Local scripts & misc ──────────────────────────────────────────────────────
+connect.py
+local_init.sh
+start_all.sh
+stop_all.sh
+legacy-service/
+documenation
+wren_ai_readme.md
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+__MACOSX/
+*.pem
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
